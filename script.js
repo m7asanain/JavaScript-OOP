@@ -1,46 +1,25 @@
 /*
-  Delete Operator
+  For ... In Loop
+  Loop Through The Properties Of The Objects
 */
 
-const user = { name: "Osama" };
+const user = {
+  name: "Mustafa",
+  country: "Iraq",
+  age: 20,
+};
 
-console.log(user);
-console.log(user.name);
+let finalData = '';
 
-// delete user; // Delete Property Not Object
-// delete user.name;
-// delete user["name"];
-console.log(delete user["name"]);
 
-console.log(user);
-console.log(user.name);
+for (let info in user) {
+  console.log(`The ${info} is => ${user[info]}`);
+  finalData += `<div>The ${info} is => ${user[info]}</div>`;
+}
 
-console.log("#".repeat(15));
+// console.log(user.country);
+// console.log(user["name"]);
 
-const username = "Osama";
-console.log(username);
-console.log(delete username);
-console.log(username);
+console.log(finalData);
 
-console.log("#".repeat(15));
-
-const freezedObj = Object.freeze({ age: 37 });
-console.log(freezedObj);
-console.log(freezedObj.age);
-
-console.log(delete freezedObj.age);
-
-console.log(freezedObj);
-console.log(freezedObj.age);
-
-console.log("#".repeat(15));
-
-const eObj = {};
-Object.defineProperty(eObj, "a", { value: 1, configurable: false });
-console.log(eObj);
-console.log(eObj.a);
-
-console.log(delete eObj.a);
-
-console.log(eObj);
-console.log(eObj.a);
+document.getElementById("info").innerHTML = finalData;

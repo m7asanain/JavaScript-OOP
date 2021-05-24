@@ -1,43 +1,32 @@
 /*
-  Constructor Function
+  Constructor Function Advanced & New Keyword
 */
 
-function Phone(serial, color, price) {
-  this.serial = serial;
-  this.color = color;
-  this.price = price - 100;
+function Phone(serial) {
+  // this is the created object from the constrcutor function
+  console.log(this);
+  this.serial = `#${serial}`;
 }
 
-let phone1 = new Phone(123, "Red", 500);
-let phone2 = new Phone(159, "Black", 500);
-let phone3 = new Phone(167, "Silver", 500);
+let phone1 = new Phone(123456);
+let phone2 = new Phone(528951);
+let phone3 = Phone(125698);
 
 console.log(phone1.serial);
-console.log(phone1.color);
-console.log(phone1.price);
-
 console.log(phone2.serial);
-console.log(phone2.color);
-console.log(phone2.price);
+console.log(window.serial);
 
-console.log(phone3.serial);
-console.log(phone3.color);
-console.log(phone3.price);
+console.log(phone1 instanceof Phone);
+console.log(phone2 instanceof Phone);
+console.log(phone3 instanceof Phone);
 
-// const phone1 = {
-//   serial: 123,
-//   color: "Red",
-//   price: 500,
-// };
+console.log(phone1.constructor === Phone);
+console.log(phone2.constructor === Phone);
+// console.log(phone3.constructor === Phone); // error
 
-// const phone2 = {
-//   serial: 159,
-//   color: "Black",
-//   price: 500,
-// };
+function sayHelloTo(someone) {
+  // someone => parameter
+  return `Hello ${someone}`;
+}
 
-// const phone3 = {
-//   serial: 167,
-//   color: "Silver",
-//   price: 500,
-// };
+console.log(sayHelloTo("Osama")); // Osama => argument

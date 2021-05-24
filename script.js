@@ -1,25 +1,43 @@
 /*
-  For ... In Loop
-  Loop Through The Properties Of The Objects
+  Constructor Function
 */
 
-const user = {
-  name: "Mustafa",
-  country: "Iraq",
-  age: 20,
-};
-
-let finalData = '';
-
-
-for (let info in user) {
-  console.log(`The ${info} is => ${user[info]}`);
-  finalData += `<div>The ${info} is => ${user[info]}</div>`;
+function Phone(serial, color, price) {
+  this.serial = serial;
+  this.color = color;
+  this.price = price - 100;
 }
 
-// console.log(user.country);
-// console.log(user["name"]);
+let phone1 = new Phone(123, "Red", 500);
+let phone2 = new Phone(159, "Black", 500);
+let phone3 = new Phone(167, "Silver", 500);
 
-console.log(finalData);
+console.log(phone1.serial);
+console.log(phone1.color);
+console.log(phone1.price);
 
-document.getElementById("info").innerHTML = finalData;
+console.log(phone2.serial);
+console.log(phone2.color);
+console.log(phone2.price);
+
+console.log(phone3.serial);
+console.log(phone3.color);
+console.log(phone3.price);
+
+// const phone1 = {
+//   serial: 123,
+//   color: "Red",
+//   price: 500,
+// };
+
+// const phone2 = {
+//   serial: 159,
+//   color: "Black",
+//   price: 500,
+// };
+
+// const phone3 = {
+//   serial: 167,
+//   color: "Silver",
+//   price: 500,
+// };

@@ -1,38 +1,30 @@
 /*
   Constructor Function
-  Dealing With Properties
-  40% to 60%
+  60% To 70%
+  Trainings
 */
-
-function  User(firstName, lastName, age, countrty) {
-  this.firstName = firstName;
-  this.lastName = lastName;
+function User(name, email, age, showEmail) {
+  this.name = name;
+  this.email = email;
   this.age = age;
-  this.country = countrty;
-  this.fullName = function() {
-    return `Full Name: ${this.firstName} ${this.lastName}`;
+  this.updateName = function(newName) {
+    if (this.age > 18) {
+      this.name = newName;
+    } else {
+      console.log('You cannot change your name cause age restriction!');;
+    }
   };
-  this.ageInDays = function() {
-    return `Age in days = ${age * 365}`;
-  };
+  this.showEmail = function() {
+    if (showEmail === true) {
+       return `Email is: ${this.email}`;
+    } else {
+      return 'Data is privte!';
+    }
+  }
 }
+let user1 = new User("Mustafa", "mustafa@email.com", 20, true);
 
-// User.country = "Iraq";   Wrong
-
-let user1 = new User("Mustafa", "Alkamali", 20, "Istanbul");
-// user1.country = "Istanbul";
-let user2 = new User("Ahmed", "Hamdi", 50, "Iraq");
-// user2.country = "Iraq";
-
-
-console.log(user1);
-// console.log(`Full Name: ${user1.firstName} ${user1.lastName}`);  // same *
-console.log(user1.fullName());  // best choise - same *
-console.log(user1.ageInDays()); 
-
-console.log("-----------"); 
-
-console.log(user2);
-// console.log(`Full Name: ${user2.firstName} ${user2.lastName}`);  // same *
-console.log(user2.fullName());  // best choise - same *
-console.log(user2.ageInDays()); 
+console.log(user1.name);
+user1.updateName("Ahmed");  // update value
+console.log(user1.name);
+console.log(user1.showEmail());

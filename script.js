@@ -1,29 +1,31 @@
 /*
-  Prototype 2
+  Prototype 3
 */
 
-function User(name) {
-  this.name = name;
-  this.welcome = function () {
-    return `Welcome ${this.name}`;
-  };
-}
+let myString = "Mustafa";
 
-let user1 = new User("Osama");
-let user2 = new User("Ahmed");
+console.log(String.prototype);
 
-console.log(User.prototype);
-console.log(user1);
+String.prototype.zFill = function(width) {
+  let theResult = this;
 
-User.prototype.addTitle = function () {
-  return `Mr. ${this.name}`;
+  while (theResult.length < width) {
+    theResult = `0${theResult}`;
+  }
+
+  return theResult.toString();
 };
 
-console.log(Object.prototype);
+console.log("54".zFill(6));
+console.log("654".zFill(6));
+console.log("8464".zFill(6));
+console.log("48465".zFill(6));
+console.log("151186".zFill(6));
 
-Object.prototype.elzero = "Elzero Web School";
+console.log("--------------");
 
-const myObject = { a: 1, b: 2 };
-console.log(myObject.a);
-console.log(myObject.b);
-console.log(myObject.elzero);
+String.prototype.sayYouLoveMe = function() {
+  return `I love you ${this}`;
+}
+
+console.log("Mustafa".sayYouLoveMe());

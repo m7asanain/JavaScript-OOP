@@ -1,30 +1,26 @@
 /*
-  Constructor Function
-  60% To 70%
-  Trainings
+  Constructor Function 80%
+  Built In Constructors
 */
-function User(name, email, age, showEmail) {
-  this.name = name;
-  this.email = email;
-  this.age = age;
-  this.updateName = function(newName) {
-    if (this.age > 18) {
-      this.name = newName;
-    } else {
-      console.log('You cannot change your name cause age restriction!');;
-    }
-  };
-  this.showEmail = function() {
-    if (showEmail === true) {
-       return `Email is: ${this.email}`;
-    } else {
-      return 'Data is privte!';
-    }
-  }
-}
-let user1 = new User("Mustafa", "mustafa@email.com", 20, true);
 
-console.log(user1.name);
-user1.updateName("Ahmed");  // update value
-console.log(user1.name);
-console.log(user1.showEmail());
+function User(name) {
+  this.name = name;
+  this.welcome = function() {
+    return `Welcome ${this.name}`;
+  };
+}
+
+let user1 = new User("Mustafa");
+let user2 = new User("Ahmed");
+
+let obj1 = new Object({ a: 1 });
+let obj2 = new Object({ b: 2 });
+let obj3 = { c: 3 };    // best way
+
+let num1 = new Number(1);
+let num2 = new Number(2);
+let num3 = 3;    // best way
+
+let str1 = new String("Mustafa");
+let str2 = new String("Mahmood");
+let str3 = "Hasanain";    // best way

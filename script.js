@@ -1,6 +1,5 @@
 /*
-  Constructor Function 80%
-  Built In Constructors
+  Prototype
 */
 
 function User(name) {
@@ -13,14 +12,14 @@ function User(name) {
 let user1 = new User("Mustafa");
 let user2 = new User("Ahmed");
 
-let obj1 = new Object({ a: 1 });
-let obj2 = new Object({ b: 2 });
-let obj3 = { c: 3 };    // best way
+console.log(User.prototype);
 
-let num1 = new Number(1);
-let num2 = new Number(2);
-let num3 = 3;    // best way
+// function sayHello() {
+//   return 1;
+// }
 
-let str1 = new String("Mustafa");
-let str2 = new String("Mahmood");
-let str3 = "Hasanain";    // best way
+// console.log(sayHello.prototype);
+
+const arr = [1, 2, 3, 4, 5];
+console.log(Array.prototype);
+console.log(arr.reverse());

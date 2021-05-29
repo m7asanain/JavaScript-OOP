@@ -1,39 +1,30 @@
 /*
-  Prototype 4
-  [1] Every Object Has A Prototype
-  [2] Prototype Chain Ends With Object.prototype
-  [2] In Javascript Function Is Object
+  Class Syntax
 */
 
-function User(name) {
-  /*
-    [1] Create Empty Object
-    [2] Assign The New Object To this Context
-    [3] New Object Created Prototype = Function Prototype
-    this = {};
-    this.__proto__ = User.__proto__
-  */
-  this.name = name;
-  /*
-    [4] Return The New Object
-    return this
-  */
-
-  // if (!(this instanceof User)) {
-  //   // throw new Error("Must Be Called With New Keyword");
-  //   console.log("Error");
-  // }
-
-  // ES6
-  if (!new.target) {
-    // throw new Error("Must Be Called With New Keyword");
-    console.log("Error");
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  sayHello() {
+    return `Hello ${this.name}`;
+  }
+  showEmail() {
+    return `Yor Email Is: ${this.email}`;
   }
 }
 
-let user1 = new User("Mustafa");
-let user2 = new User("Mahmood");
-console.log(User.prototype);
-console.log(user1);
+// function User(name, email) {
+//   this.name = name;
+//   this.email = email;
+//   this.sayHello = function() {
+//     return `Hello ${this.name}`;
+//   };
+// }
 
-let myArray = [1, 2, 3, 4];
+let user1 = new User("Mustafa", "m7@k.com");
+let user2 = new User("Mahmood", "h7@k.com");
+
+console.log(user1);
+console.log(user2);

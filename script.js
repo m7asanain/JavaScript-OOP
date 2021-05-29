@@ -1,31 +1,39 @@
 /*
-  Prototype 3
+  Prototype 4
+  [1] Every Object Has A Prototype
+  [2] Prototype Chain Ends With Object.prototype
+  [2] In Javascript Function Is Object
 */
 
-let myString = "Mustafa";
+function User(name) {
+  /*
+    [1] Create Empty Object
+    [2] Assign The New Object To this Context
+    [3] New Object Created Prototype = Function Prototype
+    this = {};
+    this.__proto__ = User.__proto__
+  */
+  this.name = name;
+  /*
+    [4] Return The New Object
+    return this
+  */
 
-console.log(String.prototype);
+  // if (!(this instanceof User)) {
+  //   // throw new Error("Must Be Called With New Keyword");
+  //   console.log("Error");
+  // }
 
-String.prototype.zFill = function(width) {
-  let theResult = this;
-
-  while (theResult.length < width) {
-    theResult = `0${theResult}`;
+  // ES6
+  if (!new.target) {
+    // throw new Error("Must Be Called With New Keyword");
+    console.log("Error");
   }
-
-  return theResult.toString();
-};
-
-console.log("54".zFill(6));
-console.log("654".zFill(6));
-console.log("8464".zFill(6));
-console.log("48465".zFill(6));
-console.log("151186".zFill(6));
-
-console.log("--------------");
-
-String.prototype.sayYouLoveMe = function() {
-  return `I love you ${this}`;
 }
 
-console.log("Mustafa".sayYouLoveMe());
+let user1 = new User("Mustafa");
+let user2 = new User("Mahmood");
+console.log(User.prototype);
+console.log(user1);
+
+let myArray = [1, 2, 3, 4];

@@ -1,11 +1,17 @@
 /*
   Class Syntax
+  Static Properties & Methods
 */
 
 class User {
-  constructor(name, email) {
+  // static properties
+  static counter = 0;
+
+  constructor(name, email, counter) {
     this.name = name;
     this.email = email;
+    this.counter = counter;
+    User.counter++;
   }
   sayHello() {
     return `Hello ${this.name}`;
@@ -13,18 +19,27 @@ class User {
   showEmail() {
     return `Yor Email Is: ${this.email}`;
   }
+
+  // * if it's not static => objectName.method
+  objectCounter = function() {
+    // this => get individul count / User get all count
+    return `${this.counter} Objects Created!`;
+  }
+
+  // static method
+  // * if it's static => className.method
+  // static objectCounter = function() {
+  //   return `${User.counter} Objects Created!`;
+  // }
 }
 
-// function User(name, email) {
-//   this.name = name;
-//   this.email = email;
-//   this.sayHello = function() {
-//     return `Hello ${this.name}`;
-//   };
-// }
+let user1 = new User("Mustafa", "m7@k.com", 2);
+// let user2 = User("Mustafa", "m7@k.com");    // Uncaught TypeError: Class constructor User cannot be invoked without 'new'
+let user3 = new User("Mustafa", "m7@k.com", 2);
+let user4 = new User("Mustafa", "m7@k.com", 2);
+let user5 = new User("Mustafa", "m7@k.com", 2);
 
-let user1 = new User("Mustafa", "m7@k.com");
-let user2 = new User("Mahmood", "h7@k.com");
+console.log(typeof User);   // function
+console.log(User === User.prototype.constructor);   // true
 
-console.log(user1);
-console.log(user2);
+console.log(user1.objectCounter());

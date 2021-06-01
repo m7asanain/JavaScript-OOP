@@ -1,50 +1,50 @@
 /*
-  Object.defineProperties & Trainings
+  Importants Notes And The End
+  [1] Arrow Functions Do Not Have a Prototype Property.
+  [2] You Can Use Objects Inside Constructor Freely
+  [3] f = function () {} ==== f() {}
 */
 
-const myObject = {
-  a: 1,
-  b: 2,
+class User {
+  constructor(fName, lName, age, email) {
+    this.name = {
+      first: fName,
+      last: lName,
+    };
+    this.age = age;
+    this.email = email;
+  }
+  sayHello = function () {    // *same
+    return `Say Hello`;
+  };
+  sayHi() {    // *same - more preferred
+    return `Say Hi`;
+  }
 }
 
-Object.defineProperty(myObject, "a", {
-  writable: true,       // false : will not change the value
-  enumerable: false,     // false : will not include added value 
-  configurable: false,  // false : will not delete a value
-  value: 500,
-});
+let userData = new User("Mustafa", "Alkamali", 20, "m7@mail.com");
+// console.log(userData);
 
-Object.defineProperty(myObject, "c", {
-  value: 3,
-});
+// console.log("#".repeat(10));
 
-myObject.d = 4;
+// userData.fName = "Mustafa";
+// console.log(userData.fName);
 
-Object.defineProperties(myObject, {
-  e: {
-    writable: false,
-    enumerable: false,
-    configurable: false,
-    value: 5,
-  },
-  f: {
-    writable: false,
-    enumerable: false,
-    configurable: false,
-    value: 6,
-  },
-  g: {
-    writable: true,
-    enumerable: true,
-    configurable: true,
-    value: 7,
-  }
-});
+// userData.lName = "Alkamali";
+// console.log(userData.lName);
 
-console.log(myObject);
-console.log(Object.getOwnPropertyDescriptor(myObject, "a"));
-console.log(Object.getOwnPropertyDescriptor(myObject, "c"));
-console.log(Object.getOwnPropertyDescriptor(myObject, "d"));
+// userData.age = 20;
+// console.log(userData.age);
 
-console.log(Object.getOwnPropertyNames(myObject));
-console.log(Object.keys(myObject));   // return vlaues that only can loops / enumerable: false
+// userData.email = "m7@mail.com";
+// console.log(userData.email);
+
+// console.log(userData.sayHello());
+// console.log(userData.sayHi());
+
+console.log(userData.name.first);
+console.log(userData.name.last);
+console.log(userData.age);
+console.log(userData.email);
+console.log(userData.sayHello());
+console.log(userData.sayHi());

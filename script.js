@@ -1,6 +1,6 @@
 /*
   Class Syntax
-  Inheritance
+  Getters and Setters
 */
 
 class User {
@@ -8,28 +8,44 @@ class User {
     this.name = name;
     this.email = email;
   }
+
   sayHello() {
     return `Hello ${this.name}`;
   }
-  showEmail() {
-    return `Yor Email Is: ${this.email}`;
+
+  // get will change the method to property
+
+  // use get + () when we call it = Uncaught TypeError
+  // use get w/ ()
+  // use () w/ get
+  get showInfo() {
+    return `Name: ${this.name}, Email: ${this.email}`;
   }
-  writeMsg() {
-    return 'Message from perant class!';
+
+  changeName(newName) {
+    this.name = newName;
+  }
+
+  set changeEmail(newEmail) {
+    this.email = newEmail;
   }
 }
 
-class Admin extends User {
-  constructor(name, email) {
-    super(name, email);
-  }
-  adminMsg() {
-    return 'You are the Admin!';
-  }
-  writeMsg() {
-    return 'Message from child class!';
-  }
-}
+let user1 = new User("Mustafa", "m7@mail.com")
+console.log(user1.name);
+console.log(user1.email);
+console.log(user1.showInfo);
 
-let admin1 = new Admin("Mustafa", "m7@mail.com")
-console.log(admin1);
+console.log('~~~~');
+
+user1.changeName("Musta")
+// user1.name = "Musta";  other method
+console.log(user1.name);
+console.log(user1.showInfo);
+
+console.log('~~~~');
+
+user1.changeEmail = 'mustafa@mail.com';
+console.log(user1.name);
+console.log(user1.email);
+console.log(user1.showInfo);

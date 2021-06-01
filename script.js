@@ -1,51 +1,39 @@
 /*
-  Class Syntax
-  Getters and Setters
+  Object Metadata
+  writable
+  enumerable
+  configurable
+  ============
+  Object.defineProperty(obj, prop, descriptor)
 */
 
-class User {
-  constructor(name, email) {
-    this.name = name;
-    this.email = email;
-  }
-
-  sayHello() {
-    return `Hello ${this.name}`;
-  }
-
-  // get will change the method to property
-
-  // use get + () when we call it = Uncaught TypeError
-  // use get w/ ()
-  // use () w/ get
-  get showInfo() {
-    return `Name: ${this.name}, Email: ${this.email}`;
-  }
-
-  changeName(newName) {
-    this.name = newName;
-  }
-
-  set changeEmail(newEmail) {
-    this.email = newEmail;
-  }
+const myObject = {
+  a: 1,
+  b: 2,
 }
 
-let user1 = new User("Mustafa", "m7@mail.com")
-console.log(user1.name);
-console.log(user1.email);
-console.log(user1.showInfo);
+Object.defineProperty(myObject, "c", {
+  writable: true,       // false : will not change the value
+  enumerable: true,     // false : will not include added value 
+  configurable: false,  // false : will not delete a value
+  value: 3,
+});
 
-console.log('~~~~');
+// Object.defineProperty(myObject, "c", {
+//   writable: true,
+// });
 
-user1.changeName("Musta")
-// user1.name = "Musta";  other method
-console.log(user1.name);
-console.log(user1.showInfo);
+console.log(delete myObject.c);
+myObject.c = 500;
 
-console.log('~~~~');
+console.log(myObject);
 
-user1.changeEmail = 'mustafa@mail.com';
-console.log(user1.name);
-console.log(user1.email);
-console.log(user1.showInfo);
+console.log('#'.repeat(10));
+
+for (let prop in myObject) {
+  console.log(prop, myObject[prop]);
+}
+
+console.log('#'.repeat(10));
+
+console.log(Object.getOwnPropertyNames(myObject));
